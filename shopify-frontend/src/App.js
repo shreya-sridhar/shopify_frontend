@@ -1,6 +1,7 @@
 import './App.css';
 import SearchBar from './components/SearchBar.js';
 import SearchMovies from './containers/SearchMovies';
+import data from './data/data';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
           Welcome to Shoppies!
         </p>
         <SearchBar/>
-        <SearchMovies/>
+        <SearchMovies movies = {data}/>
       </header>
     </div>
   );
