@@ -1,3 +1,1 @@
 # ReadMe
-
-## shopify_frontend
