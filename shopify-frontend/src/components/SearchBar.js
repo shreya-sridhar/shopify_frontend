@@ -17,20 +17,20 @@ export default class SearchBar extends React.Component {
 
   render() {
     return (
-      <div class="row mb-5" style={{ padding: 0, margin: 0 }}>
-        <div class="col-lg-12 mx-auto" style={{ padding: 0, margin: 0 }}>
-          <div class="p-5 " style={{ padding: 0, margin: 0 }}>
-            <form action="" onSubmit={this.props.onSubmit}>
+      <div className="row mb-5" style={{ padding: 0, margin: 0 }}>
+        <div className="col-lg-12 mx-auto" style={{ padding: 0, margin: 0 }}>
+          <div className="p-5 " style={{ padding: 0, margin: 0 }}>
+            <form action="" onSubmit={() => this.props.onSubmit(this.state.movie)}>
               <div
-                class="p-1 rounded rounded-pill mb-4"
+                className="p-1 rounded rounded-pill mb-4"
                 style={{ padding: 0, margin: 0 }}
               >
-                <div class="input-group" style={{ padding: 0, margin: 0 }}>
+                <div className="input-group" style={{ padding: 0, margin: 0 }}>
                   <input
                     type="search"
-                    placeholder="Search Movie"
+                    placeholder="Search movie"
                     aria-describedby="button-addon1"
-                    class="form-control border-0 bg-light"
+                    className="form-control border-0 bg-light"
                     value={this.state.value} onChange={this.handleChange}
                   ></input>
                   <input type="submit" value="Find" />

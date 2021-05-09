@@ -15,12 +15,12 @@ export default class Movie extends React.Component {
         <FrontSide
         style={{
             backgroundColor: '#41669d',
-            backgroundImage: `url("https://source.unsplash.com/300x401")`
+            // backgroundImage: url(this.props.movie["Poster"])
         }}
         >
-        <h5 style={{textAlign:"center"}}>{this.props.name}</h5>
-        <button type="button" class="btn btn-success">Details</button>
-        <button type="button" class="btn btn-success">Nominate</button>
+        <h5 style={{textAlign:"center"}}>{this.props.movie["Title"]} ({this.props.movie["Year"]})</h5>
+        <button type="button" className="btn btn-success">Details</button>
+        <button type="button" className="btn btn-success">Nominate</button>
         </FrontSide>
         <BackSide
         style={{ backgroundColor: 'black'}}>

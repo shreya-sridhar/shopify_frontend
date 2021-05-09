@@ -3,7 +3,6 @@ import SearchBar from './components/SearchBar.js';
 import Pagination from './components/Pagination.js';
 import SearchMovies from './containers/SearchMovies';
 import CardDeck from './containers/CardDeck';
-import data from './data/data';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import React from 'react';
@@ -13,18 +12,21 @@ class App extends React.Component {
     title: "",
     pageNum: 1,
     currRecords: [],
-    currNominations: []
+    currNominations: [],
+    totalResults: 0
 }
 
-// componentDidUpdate() {
-//     fetch(`https://www.omdbapi.com/?type=movie&s=${this.state.title}&page=${this.state.pageNum}&apikey=41227138`)
-//         .then(resp => resp.json())
-//         .then(data => this.setState({popularRecords: data}))
-// }
+componentDidUpdate() {
+    fetch(`https://www.omdbapi.com/?type=movie&s=${this.state.title}&page=${this.state.pageNum}&apikey=41227138`)
+        .then(resp => resp.json())
+        .then(data => this.setState({currRecords: data}))
+}
 
-// onSubmit = () => {
-
-// }
+onSubmit = (movie) => {
+  this.setState({
+    title: movie
+  })
+}
 
 render(){
 return (
@@ -36,7 +38,7 @@ return (
       <SearchBar onSubmit = {this.onSubmit} />
       <h6 style={{padding:15}}>Nominate Now!</h6>
       <Pagination/>
-      <SearchMovies movies = {data}/>
+      <SearchMovies movies = {this.state.currRecords}/>
       <div style={{marginTop:400}}>
       <Footer/>
       </div>

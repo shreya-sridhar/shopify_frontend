@@ -4,11 +4,12 @@ import Movie from '../components/Movie.js'
 
 export default class SearchMovies extends React.Component {
   render() {
+    debugger
     return (
     <div className="container mx-auto d-flex justify-content-center">
         <div className="row d-flex justify-content-center">
             {this.props.movies.map(movie =>
-                <Movie name = {movie}/>)}
+                <Movie movie = {movie}/>)}
         </div>
     </div>
         )
