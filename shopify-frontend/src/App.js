@@ -5,8 +5,8 @@ import SearchMovies from './containers/SearchMovies';
 import CardDeck from './containers/CardDeck';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
-import React from 'react';
 import Confetti from './components/Confetti.js';
+import React from 'react';
 
 class App extends React.Component {
   state = {
@@ -14,7 +14,8 @@ class App extends React.Component {
     pageNum: 1,
     currRecords: [],
     currNominations: [],
-    totalResults: 0
+    totalResults: 0,
+    confetti:false
 }
 
 componentDidUpdate() {
@@ -41,18 +42,19 @@ handleChange = (e) => {
 addToNominations = (nomination) => {
   if (this.state.currNominations.length == 4)
   {
-
+    let newNominations = [...this.state.currNominations,nomination]
+    this.setState({currNominations: newNominations, confetti: true})
   }
   let newNominations = [...this.state.currNominations,nomination]
-  this.setState({currNominations: newNominations})
+  this.setState({currNominations: newNominations, confetti: false})
 }
 
 render(){
 return (
-  <canvas id="world">
   <div className="App">
     <header className="App-header">
       <Header />
+      {this.state.confetti && <Confetti/>}
       <h6 style={{marginTop:65, fontWeight:'lighter'}}>Your Nominations</h6>
       <CardDeck nominations = {this.state.currNominations} />
       <SearchBar handleChange = {this.handleChange} />
@@ -64,7 +66,6 @@ return (
       </div>
     </header>
   </div>
-  </canvas>
 );}
 }
 
