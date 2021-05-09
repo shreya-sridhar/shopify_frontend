@@ -8,38 +8,18 @@ export default class CardDeck extends React.Component {
 <div class="container1" style ={{marginTop:50}}>
   <div class="card1">
     <h6 class="title">Nomination 1</h6>
-    <div class="bar">
-      <div class="emptybar"></div>
-      <div class="filledbar"></div>
-    </div>
   </div>
   <div class="card1">
     <h6 class="title">Nomination 1</h6>
-    <div class="bar">
-      <div class="emptybar"></div>
-      <div class="filledbar"></div>
-    </div>
   </div>
   <div class="card1">
     <h6 class="title">Nomination 1</h6>
-    <div class="bar">
-      <div class="emptybar"></div>
-      <div class="filledbar"></div>
-    </div>
   </div>
   <div class="card1">
     <h6 class="title">Nomination 1</h6>
-    <div class="bar">
-      <div class="emptybar"></div>
-      <div class="filledbar"></div>
-    </div>
   </div>
   <div class="card1">
     <h6 class="title">Nomination 1</h6>
-    <div class="bar">
-      <div class="emptybar"></div>
-      <div class="filledbar"></div>
-    </div>
   </div>
 </div>
         )

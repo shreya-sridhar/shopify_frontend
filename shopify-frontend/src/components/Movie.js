@@ -18,12 +18,13 @@ export default class Movie extends React.Component {
             backgroundImage: `url("https://source.unsplash.com/300x401")`
         }}
         >
-        {this.props.name}
+        <h5 style={{textAlign:"center"}}>{this.props.name}</h5>
+        <button type="button" class="btn btn-success">Details</button>
+        <button type="button" class="btn btn-success">Nominate</button>
         </FrontSide>
         <BackSide
         style={{ backgroundColor: 'black'}}>
         Description
-        <button>Nominate</button>
         </BackSide>
   </Flippy>
     );

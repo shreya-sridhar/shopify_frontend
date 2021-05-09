@@ -1,21 +1,48 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
-
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default class SearchBar extends React.Component {
-    render(){
-        return(
-          <div class="input-group">
-          <div class="form-outline">
-            <input id="search-focus" type="search" id="form1" class="form-control" />
-            <label class="form-label" for="form1">Search</label>
+  
+  state = {
+    movie: ""
+  }
+
+  handleChange = (e) => {
+    e.preventDefault()
+    let new_movie  = this.state.movie + e.nativeEvent.data
+    this.setState({
+      movie: new_movie
+    })
+  }
+
+  render() {
+    return (
+      <div class="row mb-5" style={{ padding: 0, margin: 0 }}>
+        <div class="col-lg-12 mx-auto" style={{ padding: 0, margin: 0 }}>
+          <div class="p-5 " style={{ padding: 0, margin: 0 }}>
+            <form action="" onSubmit={this.props.onSubmit}>
+              <div
+                class="p-1 rounded rounded-pill mb-4"
+                style={{ padding: 0, margin: 0 }}
+              >
+                <div class="input-group" style={{ padding: 0, margin: 0 }}>
+                  <input
+                    type="search"
+                    placeholder="Search Movie"
+                    aria-describedby="button-addon1"
+                    class="form-control border-0 bg-light"
+                    value={this.state.value} onChange={this.handleChange}
+                  ></input>
+                  <input type="submit" value="Find" />
+                </div>
+              </div>
+            </form>
           </div>
-          <button type="button" class="btn btn-primary">
-            <i class="fas fa-search"></i>
-          </button>
         </div>
-        )
-    }
+      </div>
+    );
+  }
 }
+
 
 
