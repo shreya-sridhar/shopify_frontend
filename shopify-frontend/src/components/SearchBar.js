@@ -20,7 +20,7 @@ export default class SearchBar extends React.Component {
       <div className="row mb-5" style={{ padding: 0, margin: 0 }}>
         <div className="col-lg-12 mx-auto" style={{ padding: 0, margin: 0 }}>
           <div className="p-5 " style={{ padding: 0, margin: 0 }}>
-            <form action="" onSubmit={() => this.props.onSubmit(this.state.movie)}>
+            <form action="" onSubmit={(e) => this.props.onSubmit(e,this.state.movie)}>
               <div
                 className="p-1 rounded rounded-pill mb-4"
                 style={{ padding: 0, margin: 0 }}

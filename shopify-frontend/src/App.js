@@ -19,10 +19,11 @@ class App extends React.Component {
 componentDidUpdate() {
     fetch(`https://www.omdbapi.com/?type=movie&s=${this.state.title}&page=${this.state.pageNum}&apikey=41227138`)
         .then(resp => resp.json())
-        .then(data => this.setState({currRecords: data}))
+        .then(data => this.setState({currRecords: data["Search"]}))
 }
 
-onSubmit = (movie) => {
+onSubmit = (e,movie) => {
+  e.preventDefault()
   this.setState({
     title: movie
   })
