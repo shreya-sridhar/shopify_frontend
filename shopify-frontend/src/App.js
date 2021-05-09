@@ -12,11 +12,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Header />
+        <h6 style={{marginTop:65, fontWeight:'lighter'}}>Your Nominations</h6>
         <CardDeck />
         <SearchBar/>
         <Pagination/>
         <SearchMovies movies = {data}/>
-        <Footer />
       </header>
     </div>
   );
