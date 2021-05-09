@@ -29,17 +29,22 @@ onSubmit = (e,movie) => {
   })
 }
 
+addToNominations = (nomination) => {
+  let newNominations = [...this.state.currNominations,nomination]
+  this.setState({currNominations: newNominations})
+}
+
 render(){
 return (
   <div className="App">
     <header className="App-header">
       <Header />
       <h6 style={{marginTop:65, fontWeight:'lighter'}}>Your Nominations</h6>
-      <CardDeck />
+      <CardDeck nominations = {this.state.currNominations} />
       <SearchBar onSubmit = {this.onSubmit} />
       <h6 style={{padding:15}}>Nominate Now!</h6>
       <Pagination/>
-      <SearchMovies movies = {this.state.currRecords}/>
+      <SearchMovies movies = {this.state.currRecords} addToNominations={this.addToNominations}/>
       <div style={{marginTop:400}}>
       <Footer/>
       </div>

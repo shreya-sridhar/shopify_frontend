@@ -28,7 +28,7 @@ export default class Movie extends React.Component {
         }}
         >
         <button type="button" className="btn btn-sm btn-success" onClick={() => this.flippyHorizontal.toggle()}>Details</button>&nbsp;
-        <button type="button" className="btn btn-sm btn-success">Nominate</button>
+        <button type="button" className="btn btn-sm btn-success" onClick={() => this.props.addToNominations(this.props.movie)}>Nominate</button>
         </FrontSide>
         <BackSide
             style={{

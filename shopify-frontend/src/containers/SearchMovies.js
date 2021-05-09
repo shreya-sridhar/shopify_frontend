@@ -8,7 +8,7 @@ export default class SearchMovies extends React.Component {
     <div className="container mx-auto d-flex justify-content-center">
         <div className="row d-flex justify-content-center">
             {this.props.movies.map(movie =>
-                <Movie movie = {movie}/>)}
+                <Movie movie = {movie} addToNominations={this.props.addToNominations}/>)}
         </div>
     </div>
         )
