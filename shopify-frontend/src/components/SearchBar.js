@@ -7,9 +7,9 @@ export default class SearchBar extends React.Component {
         return(
             <div class="row mb-5">
             <div class="col-lg-12 mx-auto">
-              <div class="bg-white p-5 rounded shadow">
+              <div class="p-5 rounded shadow">
                 <form action="">
-                  <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                  <div class="p-1 rounded rounded-pill mb-4">
                     <div class="input-group">
                       <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light">
                           </input>
