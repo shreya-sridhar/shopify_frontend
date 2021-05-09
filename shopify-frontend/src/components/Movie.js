@@ -10,7 +10,7 @@ export default class Movie extends React.Component {
         flipOnClick={true} // default false
         flipDirection="horizontal" // horizontal or vertical
         ref={(r) => this.flippy = r} // to use toggle method like this.flippy.toggle()
-        style={{ width: '250px', height: '340px' }} /// these are optional style, it is not necessary
+        style={{ width: '300px', height: '400px' }} /// these are optional style, it is not necessary
     >
         <FrontSide
         style={{
