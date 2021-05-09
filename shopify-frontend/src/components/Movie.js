@@ -17,27 +17,28 @@ export default class Movie extends React.Component {
   render() {
     return (
     <Flippy
-        flipOnHover={false} // default false
-        flipOnClick={true} // default false
-        flipDirection="horizontal" // horizontal or vertical
-        ref={(r) => this.flippy = r} // to use toggle method like this.flippy.toggle()
-        style={{ width: '300px', height: '400px' }} /// these are optional style, it is not necessary
+        ref={(r) => this.flippyHorizontal = r}
+        flipOnClick={false}
+        style={{ width: '300px', height: '400px', marginTop:30, marginRight:50 }} /// these are optional style, it is not necessary
     >
         <FrontSide
         style={{
             backgroundColor: '#41669d',
-            backgroundImage: `url(${this.props.movie["Poster"]})`,
+            background: `linear-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0.15)), url(${this.props.movie["Poster"]})`
         }}
         >
-        {/* <h5 style={{textAlign:"center"}}>{this.props.movie["Title"]} ({this.props.movie["Year"]})</h5> */}
-        <button type="button" className="btn btn-success">Details</button>
-        <button type="button" className="btn btn-success">Nominate</button>
+        <button type="button" className="btn btn-sm btn-success" onClick={() => this.flippyHorizontal.toggle()}>Details</button>&nbsp;
+        <button type="button" className="btn btn-sm btn-success">Nominate</button>
         </FrontSide>
         <BackSide
-        style={{ backgroundColor: 'black', fontSize: 10}}>
-          <article class="card-body p-5" style={{padding:0}}>
+            style={{
+            backgroundColor: '#181818',
+            fontSize: 10,width: '300px', height: '400px',overflowY:"scroll"
+        }}>
+          <div >
           <h5 style={{textAlign:"center"}}>{this.props.movie["Title"]} ({this.props.movie["Year"]})</h5>
-
+          <h7><button type="button" onClick={() => this.flippyHorizontal.toggle()}>Back</button>
+          <button type="button"><a href= {'https://www.imdb.com/title/'+`${this.props.movie["imdbID"]}/`}  target="_blank" style={{padding:1}}> IMDB Site </a></button></h7>
 <p class="price-detail-wrap" style={{padding:0}}> 
 	<span class="price h6 text-warning"> 
 		<span class="currency">{this.state.details["Rated"]}</span><span class="num"></span>
@@ -63,10 +64,7 @@ export default class Movie extends React.Component {
   <dt>Director</dt>
   <dd>{this.state.details["Director"]}</dd>
 </dl>
-
-<hr></hr>
-	<a href="google.com" class="btn btn-sm btn-primary text-uppercase" style={{padding:1}}> IMDB Site </a>
-</article> 
+</div>
     
         </BackSide>
   </Flippy>
