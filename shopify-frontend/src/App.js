@@ -6,6 +6,7 @@ import CardDeck from './containers/CardDeck';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import React from 'react';
+import Confetti from './components/Confetti.js';
 
 class App extends React.Component {
   state = {
@@ -19,29 +20,42 @@ class App extends React.Component {
 componentDidUpdate() {
     fetch(`https://www.omdbapi.com/?type=movie&s=${this.state.title}&page=${this.state.pageNum}&apikey=41227138`)
         .then(resp => resp.json())
-        .then(data => this.setState({currRecords: data["Search"]}))
+        .then(data => {
+          if (data["Response"])
+          {
+            console.log("hurry")
+            this.setState({currRecords: data["Search"]})
+          }
+        }
+        )
 }
 
-onSubmit = (e,movie) => {
-  e.preventDefault()
-  this.setState({
-    title: movie
-  })
+handleChange = (e) => {
+  debugger
+    let new_title =   e.target.value
+    this.setState({
+      title: new_title
+    })
 }
 
 addToNominations = (nomination) => {
+  if (this.state.currNominations.length == 4)
+  {
+
+  }
   let newNominations = [...this.state.currNominations,nomination]
   this.setState({currNominations: newNominations})
 }
 
 render(){
 return (
+  <canvas id="world">
   <div className="App">
     <header className="App-header">
       <Header />
       <h6 style={{marginTop:65, fontWeight:'lighter'}}>Your Nominations</h6>
       <CardDeck nominations = {this.state.currNominations} />
-      <SearchBar onSubmit = {this.onSubmit} />
+      <SearchBar handleChange = {this.handleChange} />
       <h6 style={{padding:15}}>Nominate Now!</h6>
       <Pagination/>
       <SearchMovies movies = {this.state.currRecords} addToNominations={this.addToNominations}/>
@@ -50,6 +64,7 @@ return (
       </div>
     </header>
   </div>
+  </canvas>
 );}
 }
 

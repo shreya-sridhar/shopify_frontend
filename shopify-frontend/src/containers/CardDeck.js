@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default class CardDeck extends React.Component {
 
     render() {
-        debugger
         return ( 
 <div class="container1" style ={{marginTop:50}}>
   <div class="card1" style={ this.props.nominations[0] ? {  background: `url(${this.props.nominations[0]["Poster"]})`,backgroundSize: "contain"} : {}}
