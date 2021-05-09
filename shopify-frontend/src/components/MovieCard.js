@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
-export default class Movie extends React.Component {
+export default class MovieCard extends React.Component {
 
   state = {
     details : {}
@@ -15,6 +15,7 @@ export default class Movie extends React.Component {
   }
 
   render() {
+    debugger
     return (
     <Flippy
         ref={(r) => this.flippyHorizontal = r}
@@ -28,7 +29,7 @@ export default class Movie extends React.Component {
         }}
         >
         <button type="button" className="btn btn-sm btn-success" onClick={() => this.flippyHorizontal.toggle()}>Details</button>&nbsp;
-        {Object.keys(this.props.currNominations.filter((nom) => nom["imdbID"] === this.props.movie["imdbID"])).length === 0 && <button type="button" className="btn btn-sm btn-success" onClick={() => this.props.addToNominations(this.props.movie)}>Nominate</button>}
+        <button type="button" className="btn btn-sm btn-success" onClick={() => this.props.removeNomination(this.props.movie)}>Remove Nomination</button>
         </FrontSide>
         <BackSide
             style={{
@@ -37,8 +38,9 @@ export default class Movie extends React.Component {
         }}>
           <div >
           <h5 style={{textAlign:"center"}}>{this.props.movie["Title"]} ({this.props.movie["Year"]})</h5>
-          <h7><button type="button" onClick={() => this.flippyHorizontal.toggle()}>Back</button>
-          <button type="button"><a href= {'https://www.imdb.com/title/'+`${this.props.movie["imdbID"]}/`}  target="_blank" style={{padding:1}}> IMDB Site </a></button></h7>
+          <h7><button type="button" onClick={() => this.flippyHorizontal.toggle()}>Flip</button></h7>
+          <h7><button type="button" onClick={() => this.props.removeSelected(this.props.movie)}>Close</button></h7>
+          <h7><button type="button"><a href= {'https://www.imdb.com/title/'+`${this.props.movie["imdbID"]}/`}  target="_blank" style={{padding:1}}> IMDB Site </a></button></h7>
 <p class="price-detail-wrap" style={{padding:0}}> 
 	<span class="price h6 text-warning"> 
 		<span class="currency">{this.state.details["Rated"]}</span><span class="num"></span>

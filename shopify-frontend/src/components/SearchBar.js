@@ -25,7 +25,6 @@ export default class SearchBar extends React.Component {
                     className="form-control border-0 bg-light"
                     value={this.state.value} onChange={(e) => this.props.handleChange(e)}
                   ></input>
-                  <input type="submit" value="Find" />
                 </div>
               </div>
             </form>
