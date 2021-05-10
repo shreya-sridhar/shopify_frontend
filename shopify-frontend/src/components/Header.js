@@ -9,7 +9,7 @@ export default class Header extends React.Component {
             <div className="StreamsHero-image" style={{padding:5}}>
   <div className="StreamsHero-content" style={{padding:1}}>
       <div className="StreamsHero-buttonContainer" style={{padding:2}}>
-      <h4 style = {{textAlign:"center"}}> SHOPPIES NOMINATIONS<button onClick = {this.props.generateLink}><FontAwesomeIcon icon={faShare}/></button></h4>
+      <h4 style = {{textAlign:"center"}}> SHOPPIES NOMINATIONS<button onClick = {this.props.makeLink}><FontAwesomeIcon icon={faShare}/></button></h4>
     </div>
   </div>
 </div>

@@ -9,9 +9,10 @@ import Ribbon from "./components/Ribbon.js";
 import MovieCard from "./components/MovieCard.js";
 import Rodal from "./components/Rodal.js";
 import SharePage from "./components/SharePage";
+import GenerateLink from "./components/GenerateLink";
 import React from "react";
 import {Interpolator} from 'react-apply-darkmode';
-import {encode, decode} from 'string-encode-decode'
+import base64 from 'react-native-base64'
 
 class App extends React.Component {
   state = {
@@ -24,6 +25,8 @@ class App extends React.Component {
     selectedMovie: {},
     notif: false,
     numPages: 1,
+    link: "",
+    visible: false
   };
 
   changePageNum = async(num) => {
@@ -122,7 +125,7 @@ class App extends React.Component {
       
       await this.fetchMoviesJSON()
     .then(movies => {
-      this.setState({
+      this.setState({...this.state,
         currMovies: movies["Search"],
         numPages: Math.ceil(parseInt(movies["totalResults"]) / 10),
       }); // fetched movies
@@ -130,10 +133,14 @@ class App extends React.Component {
     }
   };
 
-  generateLink = () => {
-    let ids = this.state.currMovies.map((movie) => movie["imdbID"])
-    let en = encode(this.ids.join('-'))
-    
+  makeLink = () => {
+    let ids = this.state.currNominations.map((movie) => movie["imdbID"])
+    let en = base64.encode(ids.join('-'))
+    this.setState({...this.state,link: en,visible:true})
+  }
+
+  hideLink = () => {
+    this.setState({...this.state,visible: false });
   }
 
   render() {
@@ -144,10 +151,11 @@ class App extends React.Component {
       filter={{brightness: 100, contrast:100, sepia: 20}}>
       <div className="App">
         <header className="App-header">
-          <Header/>
+          <Header makeLink={this.makeLink}/>
           {this.state.notif === true && 
           <Rodal/>
           }
+          <GenerateLink link={this.state.link} visible={this.state.visible} hideLink={this.hideLink}/>
           {this.state.ribbon === true && <Ribbon />}
           <CardDeck
             nominations={this.state.currNominations}
