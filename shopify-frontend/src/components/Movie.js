@@ -35,6 +35,7 @@ export default class Movie extends React.Component {
             position: "relative"
           }}
         >
+          
           <button type="button" class="btn-lg" style={{width:"100%",backgroundColor:"black"}}><h6 style={{fontWeight:"lighter"}}>{this.props.movie["Title"]} ({this.props.movie["Year"]})</h6></button>
           <button
             type="button"
