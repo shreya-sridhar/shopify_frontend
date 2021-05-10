@@ -41,6 +41,6 @@ To run The Shoppies, first clone this repository, then run the following command
 
 #### Contributions
 Shreya Sridhar
-- Linkedin
-- Website
-- Resume
+- 💬 Connect with me on [Linkedin](https://www.linkedin.com/in/shreyasridhariitb/)
+- 📝I blog @ [Medium](https://shreyasridhar1109.medium.com/)
+- 📃 [My resume](https://shreyastorage.blob.core.windows.net/shreyasridhariitbresume/shreya_iitb_resume.pdf)
