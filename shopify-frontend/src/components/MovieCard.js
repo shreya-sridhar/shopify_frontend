@@ -55,6 +55,7 @@ export default class MovieCard extends React.Component {
               >
                 Close
               </button>
+          
         </FrontSide>
         <BackSide
           style={{

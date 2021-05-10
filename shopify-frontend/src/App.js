@@ -7,8 +7,9 @@ import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import Ribbon from "./components/Ribbon.js";
 import MovieCard from "./components/MovieCard.js";
-import Alert from "./components/Alert.js";
+import Rodal from "./components/Rodal.js";
 import React from "react";
+import {Interpolator} from 'react-apply-darkmode';
 
 class App extends React.Component {
   state = {
@@ -84,12 +85,6 @@ class App extends React.Component {
     }
   };
 
-  closeAlert = () => {
-    this.setState({...this.state,
-      notif: false,
-    });
-  };
-
   updateSelectedMovie = (movie) => {
     this.setState({...this.state,
       selectedMovie: movie,
@@ -135,10 +130,16 @@ class App extends React.Component {
 
   render() {
     return (
+      <Interpolator
+      appearance='dark'
+      watchSystem={false}
+      filter={{brightness: 100, contrast:100, sepia: 20}}>
       <div className="App">
         <header className="App-header">
           <Header/>
-          {this.state.notif === true && <Alert closeAlert={this.closeAlert}/>}
+          {this.state.notif === true && 
+          <Rodal/>
+          }
           {this.state.ribbon === true && <Ribbon />}
           <CardDeck
             nominations={this.state.currNominations}
@@ -168,6 +169,7 @@ class App extends React.Component {
           </div>
         </header>
       </div>
+      </Interpolator>
     );
   }
 }

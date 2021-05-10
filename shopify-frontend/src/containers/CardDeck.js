@@ -5,7 +5,7 @@ export default class CardDeck extends React.Component {
     render() {
         return ( 
               <div>
-            <h6 style={{fontWeight:"lighter", marginTop:64}}>Your Nominations</h6>
+             <h6 style={{fontWeight:"lighter",top:34, position:"relative"}}>Your Nominations</h6>
 <div class="container1" style ={{marginTop:50,zIndex:0}}>
   <div class="card1" onClick={this.props.nominations[0]? () => this.props.updateSelectedMovie(this.props.nominations[0]):undefined} style={this.props.nominations[0] ? {  background: `url(${this.props.nominations[0]["Poster"]})`,backgroundSize: "contain"} : {}}
   >

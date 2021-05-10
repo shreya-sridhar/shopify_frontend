@@ -31,11 +31,15 @@ export default class Movie extends React.Component {
           style={{
             backgroundColor: "#41669d",
             background: `url(${this.props.movie["Poster"]})`,
+            padding:0,
+            position: "relative"
           }}
         >
+          <button type="button" class="btn-lg" style={{width:"100%",backgroundColor:"black"}}><h6 style={{fontWeight:"lighter"}}>{this.props.movie["Title"]} ({this.props.movie["Year"]})</h6></button>
           <button
             type="button"
             className="btn btn-sm btn-success"
+            style={{fontWeight:"lighter",position: "absolute",left:50,bottom: 2}}
             onClick={() => this.flippyHorizontal.toggle()}
           >
             Details
@@ -49,6 +53,7 @@ export default class Movie extends React.Component {
             <button
               type="button"
               className="btn btn-sm btn-success"
+              style={{fontWeight:"lighter",position: "absolute",right:50,bottom: 2}}
               onClick={() => this.props.addToNominations(this.props.movie)}
             >
               Nominate
@@ -57,6 +62,7 @@ export default class Movie extends React.Component {
             <button
               type="button"
               className="btn btn-sm btn-danger"
+              style={{fontWeight:"lighter",position: "absolute",bottom: 0}}
               onClick={() => this.props.removeNomination(this.props.movie)}
             >
               Remove

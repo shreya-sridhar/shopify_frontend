@@ -8,12 +8,12 @@ export default class Footer extends React.Component {
             <div className="container bottom_border">
             <div className="row">
             <div className=" col-sm-4 col-md col-sm-4  col-12 col">
-            <h5 className="headin5_amrc col_white_amrc pt2">About us</h5>
+            <h5 className="headin5_amrc col_white_amrc pt2">About Me</h5>
      
-            <p className="mb10">Vinyl Store is a one stop for shopping and selling records</p>
-            <p><i className="fa fa-location-arrow"/> Seattle, WA </p>
-            <p><i className="fa fa-phone"/>  425-123-4567  </p>
-            <p><i className="fa fa fa-envelope"/> info@vinyl.io  </p>
+            <p className="mb10">Contact:</p>
+            <p><i className="fa fa-location-arrow"/> +1-513-291-0841 </p>
+            <p><i className="fa fa-phone"/>  +1-513-307-6148  </p>
+            <p><i className="fa fa fa-envelope"/> shreyamohak@outlook.com  </p>
             
             
             </div>
