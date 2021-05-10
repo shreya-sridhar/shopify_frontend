@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+## The Shoppies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Shoppies was developed by Shreya Sridhar for Shopify's UX & Web Developer Intern Challenge. The application uses a React frontend, integrated with the OMDB API, enabling users to search and nominate their favorites for The Shoppies: Movie Awards for Entrepreneurs.
 
-## Available Scripts
+### Visit The Shoppies
 
-In the project directory, you can run:
+#### User Story Requirements:
 
-### `npm start`
+1. Search OMBD and display the results (movies only)
+2. Add a movie from the search results to our nomination list
+3. View the list of films already nominated
+4. Remove a nominee from the nomination list
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Technical requirements
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Search results should come from OMDB's API (free API key: http://www.omdbapi.com/apikey.aspx).
+2. Each search result should list at least its title, year of release and a button to nominate that film.
+3. Updates to the search terms should update the result list
+4. Movies in search results can be added and removed from the nomination list.
+5. If a search result has already been nominated, disable its nominate button.
+5. Display a banner when the user has 5 nominations.
 
-### `npm test`
+#### Technologies
+React.js, HTML, CSS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Setup
+To run The Shoppies, first clone this repository, then run the following commands in your terminal:
 
-### `npm run build`
+1. yarn install        # to download the necessary React packages and dependencies
+2. yarn start          # to open the application in your browser
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### User Stories:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Search movie titles
+2. Browse pages to find movie
+3. View more details of the movie
+4. Nominate a movie from the search result
+5. View nominated movies
+6. Remove a nominee from the nomination list
+7. Share his list of nominees with friends
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Contributions
+Shreya Sridhar
+- 💻 To know more about me, check out my [Personal Website](https://shreyastorage.z5.web.core.windows.net/) 
+- 💬 Connect with me on [Linkedin](https://www.linkedin.com/in/shreyasridhariitb/)
+- 📝I blog @ [Medium](https://shreyasridhar1109.medium.com/)
+- 📃 [My resume](https://shreyastorage.blob.core.windows.net/shreyasridhariitbresume/shreya_iitb_resume.pdf) 
+- 📫 How to reach me: shreyamohak@outlook.com / +1 513-291-0841
