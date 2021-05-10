@@ -2,16 +2,16 @@ The Shoppies
 
 The Shoppies was developed by Shreya Sridhar for Shopify's UX & Web Developer Intern Challenge. The application uses a React frontend, integrated with the OMDB API, enabling users to search and nominate their favorites for The Shoppies: Movie Awards for Entrepreneurs.
 
-###Visit The Shoppies
+### Visit The Shoppies
 
-User Story Requirements:
+#### User Story Requirements:
 
 1. Search OMBD and display the results (movies only)
 2. Add a movie from the search results to our nomination list
 3. View the list of films already nominated
 4. Remove a nominee from the nomination list
 
-Technical requirements
+#### Technical requirements
 
 1. Search results should come from OMDB's API (free API key: http://www.omdbapi.com/apikey.aspx).
 2. Each search result should list at least its title, year of release and a button to nominate that film.
@@ -20,16 +20,16 @@ Technical requirements
 5. If a search result has already been nominated, disable its nominate button.
 5. Display a banner when the user has 5 nominations.
 
-Technologies
+#### Technologies
 React.js, HTML, CSS
 
-Setup
+#### Setup
 To run The Shoppies, first clone this repository, then run the following commands in your terminal:
 
 1. yarn install        # to download the necessary React packages and dependencies
 2. yarn start          # to open the application in your browser
 
-User Stories:
+#### User Stories:
 
 1. Search movie titles
 2. Browse pages to find movie
@@ -39,8 +39,8 @@ User Stories:
 6. Remove a nominee from the nomination list
 7. Share his list of nominees with friends
 
-Contributions
+#### Contributions
 Shreya Sridhar
-Linkedin
-Website
-Resume
+- Linkedin
+- Website
+- Resume
