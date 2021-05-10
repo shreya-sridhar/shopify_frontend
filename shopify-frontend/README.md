@@ -2,7 +2,7 @@
 
 The Shoppies was developed by Shreya Sridhar for Shopify's UX & Web Developer Intern Challenge. The application uses a React frontend, integrated with the OMDB API, enabling users to search and nominate their favorites for The Shoppies: Movie Awards for Entrepreneurs.
 
-### Visit The Shoppies
+### [Visit The Shoppies](https://shoppies-shreya.herokuapp.com/)
 
 #### User Story Requirements:
 
