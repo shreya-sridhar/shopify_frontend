@@ -9,7 +9,7 @@ export default class MovieCard extends React.Component {
 
   componentDidMount() {
     fetch(
-      `http://www.omdbapi.com/?i=${this.props.movie["imdbID"]}&apikey=41227138`
+      `https://www.omdbapi.com/?i=${this.props.movie["imdbID"]}&apikey=41227138`
     )
       .then((resp) => resp.json())
       .then((data) => this.setState({ details: data }));

@@ -13,7 +13,7 @@ The Shoppies was developed by Shreya Sridhar for Shopify's UX & Web Developer In
 
 #### Technical requirements
 
-1. Search results should come from OMDB's API (free API key: http://www.omdbapi.com/apikey.aspx).
+1. Search results should come from OMDB's API (free API key: https://www.omdbapi.com/apikey.aspx).
 2. Each search result should list at least its title, year of release and a button to nominate that film.
 3. Updates to the search terms should update the result list
 4. Movies in search results can be added and removed from the nomination list.

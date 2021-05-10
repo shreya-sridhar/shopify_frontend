@@ -43,8 +43,31 @@ class App extends React.Component {
         numPages: Math.ceil(parseInt(movies["totalResults"]) / 10),
       }); // fetched movies
     });
-
   };
+
+  componentDidMount() {
+    fetch(
+      `https://www.omdbapi.com/?i=${localStorage.getItem['movie_1']}&apikey=41227138`
+    )
+      .then((resp) => resp.json())
+      .then((data1) => fetch(
+        `https://www.omdbapi.com/?i=${localStorage.getItem['movie_2']}&apikey=41227138`
+      )
+        .then((resp) => resp.json())
+        .then((data2) => fetch(
+          `https://www.omdbapi.com/?i=${localStorage.getItem['movie_3']}&apikey=41227138`
+        )
+          .then((resp) => resp.json())
+          .then((data3) => fetch(
+            `https://www.omdbapi.com/?i=${localStorage.getItem['movie_4']}&apikey=41227138`
+          )
+            .then((resp) => resp.json())
+            .then((data4) => fetch(
+              `https://www.omdbapi.com/?i=${localStorage.getItem['movie_5']}&apikey=41227138`
+            )
+              .then((resp) => resp.json())
+              .then((data5) => this.setState({ ...this.state,currNominations: [data1,data2,data3,data4,data5] }))))))
+  }
 
   handleChange = async(e) => {
     let new_title = e.target.value;
@@ -70,24 +93,37 @@ class App extends React.Component {
       return movies;
     }
 
-  addToNominations = (nomination) => {
+  addToNominations = async(nomination) => {
     if (this.state.currNominations.length === 4) {
       let newNominations = [...this.state.currNominations, nomination];
-      this.setState({...this.state,
+      await this.setState({...this.state,
         currNominations: newNominations,
         ribbon: true,
         notif: false,
       });
-      // alert & ribbon
+      debugger
+      localStorage.setItem('movie_5', nomination["imdbID"]);
     } else if (this.state.currNominations.length < 4) {
       let newNominations = [...this.state.currNominations, nomination];
-      this.setState({...this.state,
+      await this.setState({...this.state,
         currNominations: newNominations,
         ribbon: false,
         notif: false,
       });
+      localStorage.setItem("movie_4", nomination["imdbID"]);
+      if (this.state.currNominations.length === 1)
+        {
+          localStorage.setItem("movie_1", nomination["imdbID"]);
+        }
+      else if (this.state.currNominations.length === 2)
+      {
+        localStorage.setItem("movie_2", nomination["imdbID"]);
+      }
+      else if (this.state.currNominations.length === 3)
+      {
+        localStorage.setItem("movie_3", nomination["imdbID"]);
+      }
     } else {
-      debugger;
       this.setState({ ...this.state,notif: true, ribbon:true });
     }
   };
