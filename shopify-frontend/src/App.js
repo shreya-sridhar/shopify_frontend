@@ -19,9 +19,11 @@ class App extends React.Component {
     totalResults: 0,
     confetti: false,
     selectedMovie: {},
-    alert: false,
-    numPages: 1
+    notif: false,
+    numPages: 1,
   };
+
+
 
   componentDidUpdate() {
     fetch(
@@ -39,70 +41,71 @@ class App extends React.Component {
   }
 
   changePageNum = (num) => {
-    this.setState({
-      startPage: num
-    })
-  }
+    this.setState({...this.state,
+      startPage: num,
+    });
+  };
 
   handleChange = (e) => {
     let new_title = e.target.value;
-    this.setState({
+    this.setState({...this.state,
       title: new_title,
-      startPage: 1
+      startPage: 1,
     });
   };
 
   addToNominations = (nomination) => {
     if (this.state.currNominations.length === 4) {
       let newNominations = [...this.state.currNominations, nomination];
-      this.setState({
+      this.setState({...this.state,
         currNominations: newNominations,
         confetti: true,
-        alert: false,
+        notif: false,
       });
       // alert & confetti
     } else if (this.state.currNominations.length < 4) {
       let newNominations = [...this.state.currNominations, nomination];
-      this.setState({
+      this.setState({...this.state,
         currNominations: newNominations,
         confetti: false,
-        alert: false,
+        notif: false,
       });
     } else {
-      this.setState({ alert: true });
+      debugger;
+      this.setState({ ...this.state,notif: true });
     }
   };
 
   closeAlert = () => {
-    this.setState({
-      alert: false,
+    this.setState({...this.state,
+      notif: false,
     });
   };
 
   updateSelectedMovie = (movie) => {
-    this.setState({
+    this.setState({...this.state,
       selectedMovie: movie,
     });
   };
 
-  removeSelected = (movie) => {
-    this.setState({ selectedMovie: {} });
+  removeSelected = () => {
+    this.setState({ ...this.state,selectedMovie: {} });
   };
 
   removeNomination = (movie) => {
     let newNominations = this.state.currNominations.filter(
       (nom) => nom["imdbID"] !== movie["imdbID"]
     );
-    this.setState({ currNominations: newNominations, selectedMovie: {} });
+    this.setState({ ...this.state,currNominations: newNominations, selectedMovie: {} });
   };
 
   changePage = (symbol) => {
-    if (symbol === "+" && this.state.startPage + 3 < this.state.numPages ) {
+    if (symbol === "+" && this.state.startPage + 3 < this.state.numPages) {
       let newPage = parseInt(this.state.startPage) + 3;
-      this.setState({ startPage: newPage });
+      this.setState({ ...this.state,startPage: newPage });
     } else if (symbol === "-" && this.state.startPage > 3) {
       let newPage = parseInt(this.state.startPage) - 3;
-      this.setState({ startPage: newPage });
+      this.setState({ ...this.state,startPage: newPage });
     }
   };
 
@@ -111,11 +114,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <Header />
-          {this.state.confetti && <Message />}
-          {this.state.alert && <Alert />}
-          <h6 style={{ marginTop: 65, fontWeight: "lighter" }}>
-            Your Nominations
-          </h6>
+          {this.state.notif === true && <Alert closeAlert={this.closeAlert}/>}
           <CardDeck
             nominations={this.state.currNominations}
             updateSelectedMovie={this.updateSelectedMovie}
@@ -131,12 +130,13 @@ class App extends React.Component {
           <Pagination
             startPage={this.state.startPage}
             changePage={this.changePage}
-            changePageNum = {this.changePageNum}
+            changePageNum={this.changePageNum}
           />
           <SearchMovies
             movies={this.state.currRecords}
             addToNominations={this.addToNominations}
             currNominations={this.state.currNominations}
+            removeNomination={this.removeNomination}
           />
           <div style={{ marginTop: 400 }}>
             <Footer />
@@ -148,4 +148,5 @@ class App extends React.Component {
 }
 
 export default App;
+
 

@@ -1,32 +1,19 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+// import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
-export default class App extends React.Component { 
-  submit = () => {
-    confirmAlert({
-      title: 'Confirm to submit',
-      message: 'Are you sure to do this.',
-      buttons: [
-        {
-          label: 'Yes',
-          onClick: () => alert('Click Yes')
-        },
-        {
-          label: 'No',
-          onClick: () => alert('Click No')
-        }
-      ]
-    });
-  };
-
-  render() {
-    return (
-      <div className='container'>
-        <button onClick={this.submit}>Confirm dialog</button>
-      </div>
-    );
-  }
+export default class Alert extends React.Component {
+    render() {
+        debugger
+        return ( 
+        <div class="container" style={{zIndex:100,marginTop:150}}>
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true" onClick={()=> this.props.closeAlert()}>&times;</button>
+           You can only submit 5 nominations! Delete a nomination from your existing nominations before adding a new one.
+            </div>
+        </div>
+        )
+   }
 }
+
 
