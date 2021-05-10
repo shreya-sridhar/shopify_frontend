@@ -8,14 +8,16 @@ import Footer from "./components/Footer.js";
 import Ribbon from "./components/Ribbon.js";
 import MovieCard from "./components/MovieCard.js";
 import Rodal from "./components/Rodal.js";
+import SharePage from "./components/SharePage";
 import React from "react";
 import {Interpolator} from 'react-apply-darkmode';
+import {encode, decode} from 'string-encode-decode'
 
 class App extends React.Component {
   state = {
-    title: "",
+    title: "",  
     startPage: 1,
-    currRecords: [],
+    currMovies: [],
     currNominations: [],
     totalResults: 0,
     ribbon: false,
@@ -32,7 +34,7 @@ class App extends React.Component {
     await this.fetchMoviesJSON()
     .then(movies => {
       this.setState({
-        currRecords: movies["Search"],
+        currMovies: movies["Search"],
         numPages: Math.ceil(parseInt(movies["totalResults"]) / 10),
       }); // fetched movies
     });
@@ -49,7 +51,7 @@ class App extends React.Component {
     await this.fetchMoviesJSON()
     .then(movies => {
       this.setState({
-        currRecords: movies["Search"],
+        currMovies: movies["Search"],
         numPages: Math.ceil(parseInt(movies["totalResults"]) / 10),
       }); // fetched movies
     });
@@ -110,7 +112,7 @@ class App extends React.Component {
       await this.fetchMoviesJSON()
     .then(movies => {
       this.setState({
-        currRecords: movies["Search"],
+        currMovies: movies["Search"],
         numPages: Math.ceil(parseInt(movies["totalResults"]) / 10),
       }); // fetched movies
     });
@@ -121,12 +123,18 @@ class App extends React.Component {
       await this.fetchMoviesJSON()
     .then(movies => {
       this.setState({
-        currRecords: movies["Search"],
+        currMovies: movies["Search"],
         numPages: Math.ceil(parseInt(movies["totalResults"]) / 10),
       }); // fetched movies
     });
     }
   };
+
+  generateLink = () => {
+    let ids = this.state.currMovies.map((movie) => movie["imdbID"])
+    let en = encode(this.ids.join('-'))
+    
+  }
 
   render() {
     return (
@@ -159,7 +167,7 @@ class App extends React.Component {
             changePageNum={this.changePageNum}
           />
           <SearchMovies
-            movies={this.state.currRecords}
+            movies={this.state.currMovies}
             addToNominations={this.addToNominations}
             currNominations={this.state.currNominations}
             removeNomination={this.removeNomination}
