@@ -12,7 +12,9 @@ import SharePage from "./components/SharePage";
 import GenerateLink from "./components/GenerateLink";
 import React from "react";
 import {Interpolator} from 'react-apply-darkmode';
-import base64 from 'react-native-base64'
+import base64 from 'react-native-base64';
+import { BrowserRouter, Route, Switch} from "react-router-dom";
+import { withRouter } from "react-router";
 
 class App extends React.Component {
   state = {
@@ -150,14 +152,23 @@ class App extends React.Component {
       watchSystem={false}
       filter={{brightness: 100, contrast:100, sepia: 20}}>
       <div className="App">
-        <header className="App-header">
+          <Switch>
+          <Route
+            path="/share/:slug"
+            render={(routerProps) => {
+              return (
+                <SharePage movies={base64.decode(routerProps.match.params.slug).split("-")} />
+              );
+            }}
+          />
+          <header className="App-header">
           <Header makeLink={this.makeLink}/>
           {this.state.notif === true && 
           <Rodal/>
           }
           <GenerateLink link={this.state.link} visible={this.state.visible} hideLink={this.hideLink}/>
           {this.state.ribbon === true && <Ribbon />}
-          <CardDeck
+            <CardDeck
             nominations={this.state.currNominations}
             updateSelectedMovie={this.updateSelectedMovie}
           />
@@ -180,16 +191,17 @@ class App extends React.Component {
             currNominations={this.state.currNominations}
             removeNomination={this.removeNomination}
           />
+          </header>
+          </Switch>
           <div style={{ marginTop: 400 }}>
             <Footer />
           </div>
-        </header>
       </div>
       </Interpolator>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
 
 

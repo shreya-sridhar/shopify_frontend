@@ -11,7 +11,7 @@ export default class GenerateLink extends React.Component {
       <div>
         <Rodal visible={this.props.visible} onClose={() => this.props.hideLink()}><br></br>
           <div style={{fontSize:20}}>Share your nominations with your friends!</div><br></br>
-          <p style={{fontSize:15}}>{this.props.link !== "AA=="? this.props.link:"Nominate movies to generate link to share"}</p>
+          <a href={`http://localhost:3000/share/`+this.props.link} target="_blank"><p style={{fontSize:15}}>{this.props.link !== "AA=="? `http://localhost:3000/share/`+this.props.link:"Nominate movies to generate link to share"}</p></a>
         </Rodal>
       </div>
     );
