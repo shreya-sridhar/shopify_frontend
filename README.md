@@ -38,6 +38,7 @@ To run The Shoppies, first clone this repository, then run the following command
 5. View nominated movies
 6. Remove a nominee from the nomination list
 7. Share his list of nominees with friends
+8. Friends can view users list of choices
 
 #### Contributions
 Shreya Sridhar
