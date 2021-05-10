@@ -6,7 +6,7 @@ export default class Alert extends React.Component {
     render() {
         debugger
         return ( 
-        <div class="container" style={{zIndex:100,marginTop:150}}>
+        <div class="container" style={{zIndex:100,marginTop:150,position:"sticky"}}>
             <div class="alert alert-success alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true" onClick={()=> this.props.closeAlert()}>&times;</button>
            You can only submit 5 nominations! Delete a nomination from your existing nominations before adding a new one.
