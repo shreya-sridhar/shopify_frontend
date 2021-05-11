@@ -4,6 +4,8 @@ The Shoppies was developed by Shreya Sridhar for Shopify's UX & Web Developer In
 
 ### [Visit The Shoppies](https://shoppies-shreya.herokuapp.com/)
 
+#### [Feature & Process Document](https://docs.google.com/document/d/1nTOI-xY5B6u1sOgi6bAzRjoy4xM0UaSiHi3XFJiCnEk/edit?usp=sharing)
+
 #### User Story Requirements:
 
 1. Search OMBD and display the results (movies only)
