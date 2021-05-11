@@ -435,6 +435,12 @@ margin-left: auto;
   font-size: 1.5rem;
 }
 
+.rodal .rodal-dialog {
+  padding:0;
+  background-color: rgb(156, 9, 9);
+  overflow-y: scroll;
+  /* background:"url(https://i.pinimg.com/originals/7f/63/d1/7f63d1a4a44ffb62ea11a18b3856aa8c.gif)"; */
+}
 
 
 

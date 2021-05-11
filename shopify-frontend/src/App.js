@@ -164,6 +164,7 @@ class App extends React.Component {
       let noms = this.state.currNominations.map((n) => n["imdbID"]).join("-")
       localStorage.setItem("movies", noms);
     } else {
+      debugger
       this.setState({ ...this.state, notif: true, ribbon: true });
     }
   };
@@ -233,6 +234,12 @@ class App extends React.Component {
     localStorage.clear();
   };
 
+  hide = () => {
+    this.setState({
+      ...this.state, notif:false
+    })
+  }
+
   render() {
     return (
       <Interpolator
@@ -259,7 +266,7 @@ class App extends React.Component {
                 makeLink={this.makeLink}
                 clearHistory={this.clearHistory}
               />
-              {this.state.notif === true && <Rodal />}
+              {this.state.notif === true && <Rodal visible={this.state.notif} hide={this.hide} />}
               <GenerateLink
                 link={this.state.link}
                 visible={this.state.visible}
