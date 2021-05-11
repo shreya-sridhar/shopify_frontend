@@ -9,7 +9,7 @@ export default class MovieCard extends React.Component {
 
   componentDidMount() {
     fetch(
-      `https://www.omdbapi.com/?i=${this.props.movie["imdbID"]}&apikey=41227138`
+      `https://www.omdbapi.com/?i=${this.props.movie["imdbID"]}&apikey=729b7330`
     )
       .then((resp) => resp.json())
       .then((data) => this.setState({ details: data }));
@@ -30,9 +30,12 @@ export default class MovieCard extends React.Component {
         <FrontSide
           style={{
             backgroundColor: "#41669d",
-            background: `url(${this.props.movie["Poster"]})`,
+            background: this.props.movie["Poster"] !== "N/A" ? `url(${this.props.movie["Poster"]})`:"url(https://via.placeholder.com/320?text=No+Photo+Available)",
           }}
         >
+          <div style={{ textAlign: "center", width:"100%",backgroundColor:"black", position:"relative",top:-30}}>
+              {this.props.movie["Title"]} ({this.props.movie["Year"]})
+            </div>
           <button
             type="button"
             className="btn btn-sm btn-success"
@@ -67,7 +70,7 @@ export default class MovieCard extends React.Component {
           }}
         >
           <div>
-            <h5 style={{ textAlign: "center" }}>
+            <h5 style={{ textAlign: "center", width:"100%",backgroundColor:"black" }}>
               {this.props.movie["Title"]} ({this.props.movie["Year"]})
             </h5>
             <h7>

@@ -9,7 +9,7 @@ export default class ShareMovie extends React.Component {
 
   componentDidMount() {
     fetch(
-      `https://www.omdbapi.com/?i=${this.props.movie}&apikey=41227138`
+      `https://www.omdbapi.com/?i=${this.props.movie}&apikey=729b7330`
     )
       .then((resp) => resp.json())
       .then((data) => this.setState({ details: data }));
@@ -30,7 +30,7 @@ export default class ShareMovie extends React.Component {
         <FrontSide
           style={{
             backgroundColor: "#41669d",
-            background: `url(${this.state.details["Poster"]})`,
+            background: this.state.details["Poster"] !== "N/A" ? `url(${this.state.details["Poster"]})`:"url(https://via.placeholder.com/320?text=No+Photo+Available)",
             padding:0,
             position: "relative"
           }}
