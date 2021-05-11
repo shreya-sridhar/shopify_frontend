@@ -39,6 +39,7 @@ To run The Shoppies, first clone this repository, then run the following command
 6. Remove a nominee from the nomination list
 7. Share his list of nominees with friends
 8. Friends can view users list of choices
+9. User can retain his session history when he leaves the page or retain it
 
 #### Contributions
 Shreya Sridhar
